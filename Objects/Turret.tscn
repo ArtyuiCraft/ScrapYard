@@ -59,7 +59,9 @@ one_shot = true
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7j70n")
 
-[node name="bulletacceptor" type="Area2D" parent="."]
+[node name="bulletacceptor" type="Area2D" parent="." groups=["collector"]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="bulletacceptor"]
 shape = SubResource("RectangleShape2D_3jj82")

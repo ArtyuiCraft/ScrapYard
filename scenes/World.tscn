@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://cgb4gsrgn8nvq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a81bq"]
-[ext_resource type="PackedScene" uid="uid://c0lverj3asi8s" path="res://Items/BulletItem.tscn" id="2_auxvp"]
+[ext_resource type="PackedScene" uid="uid://ccs0daxrs00i6" path="res://Items/Scrap.tscn" id="2_21448"]
 [ext_resource type="TileSet" uid="uid://bupm1kkfkwf1i" path="res://tiles.tres" id="2_usrer"]
 [ext_resource type="PackedScene" uid="uid://ci5vgifq52teu" path="res://scenes/followcamera.tscn" id="3_qo8lj"]
 [ext_resource type="PackedScene" uid="uid://b7wl48076v3px" path="res://scenes/player.tscn" id="4_fkdyk"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_a81bq")
 red_ghost = Color(0.678431, 0, 0, 0.54902)
 ghost = Color(1, 1, 1, 0.498039)
-scene = ExtResource("2_auxvp")
+scene = ExtResource("2_21448")
 
 [node name="Objects" type="TileMapLayer" parent="."]
 z_index = 2

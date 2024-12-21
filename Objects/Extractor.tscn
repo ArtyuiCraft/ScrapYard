@@ -32,4 +32,4 @@ vertical_alignment = 1
 texture = SubResource("GradientTexture2D_pguhx")
 
 [node name="spawnpoint" type="Node2D" parent="."]
-position = Vector2(50, 0)
+position = Vector2(35, 0)

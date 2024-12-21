@@ -24,15 +24,16 @@ func _ready():
 		tilerotation = "up"
 	rotation_degrees = Utils.string_to_rotation(tilerotation)
 
-func pulse():
-	if $in.has_overlapping_areas() and !busy:
+func _process(delta):
 		for i in $in.get_overlapping_areas():
-			if i.get_parent().get_parent().name in ("Scrap"):
-				items[i.get_parent().get_parent().name] += 1
-				i.get_parent().get_parent().queue_free()
+			if i.is_in_group("item"):
+				if i.get_parent().get_parent().name in items.keys():
+					items[i.get_parent().get_parent().name] += 1
+					i.get_parent().get_parent().queue_free()
+
+func pulse():
 	if busy:
 		$">P>".text = " P>"
-		print("well")
 		busy = false
 		if recipe == 0:
 			var new_scene = preload("res://Items/BulletItem.tscn").instantiate()
@@ -40,8 +41,7 @@ func pulse():
 			new_scene.position = $out.position
 	if !busy:
 		$">P>".text = ">P>"
-		print("not")
 		if recipe == 0:
-			if items["Scrap"] >= 2:
-				items["Scrap"] -= 2
+			if items["Scrap"] >= 1:
+				items["Scrap"] -= 1
 				busy = true
