@@ -10,10 +10,9 @@ var directionx = 0.0
 var directiony = 0.0
 
 func _physics_process(delta):
-	var areas = $Area2D.get_overlapping_areas()
+	var areas = $"Pickup+Belt".get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group("belt"):
-			print("as")
 			onbelt = true
 			beltdirection = area.get_parent().tilerotation
 		elif area.is_in_group("keepgoing"):
@@ -23,7 +22,7 @@ func _physics_process(delta):
 			rotation_degrees = Utils.string_to_rotation(area.get_parent().tilerotation)
 		else:
 			onbelt = false
-	if !$Area2D.has_overlapping_areas():
+	if !$"Pickup+Belt".has_overlapping_areas():
 		onbelt = false
 
 	if onbelt:

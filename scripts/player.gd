@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-var hotbar = [1,2,3,4]
+var hotbar = [1,2,3,4,5]
 var selected_item = 0
 var onbelt = false
 var beltdirection
@@ -34,7 +34,6 @@ func _physics_process(delta):
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:
 		if area.is_in_group("belt"):
-			print("as")
 			onbelt = true
 			beltdirection = area.get_parent().tilerotation
 		elif area.is_in_group("keepgoing"):

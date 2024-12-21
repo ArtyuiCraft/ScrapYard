@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyb6j2kiw5tw5"]
+
+[ext_resource type="Script" path="res://Objects/producer.gd" id="1_jg2r7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jl76m"]
+size = Vector3(50, 50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g581i"]
+font_size = 29
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl4el"]
+size = Vector2(24, 50)
+
+[node name="Producer" type="Node2D"]
+script = ExtResource("1_jg2r7")
+
+[node name="Box" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_jl76m")
+
+[node name=">P>" type="Label" parent="."]
+z_index = 1
+offset_left = -25.0
+offset_top = -35.0
+offset_right = 26.0
+offset_bottom = 34.0
+text = ">P>"
+label_settings = SubResource("LabelSettings_g581i")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="in" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="in"]
+position = Vector2(-22, 0)
+shape = SubResource("RectangleShape2D_pl4el")
+
+[node name="out" type="Node2D" parent="."]
+position = Vector2(50, 0)

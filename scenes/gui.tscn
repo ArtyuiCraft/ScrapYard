@@ -51,3 +51,11 @@ layout_mode = 2
 layout_mode = 2
 text = "T
 4"
+
+[node name="Split4" type="Label" parent="GridContainer"]
+layout_mode = 2
+
+[node name="Producor" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "P
+5"

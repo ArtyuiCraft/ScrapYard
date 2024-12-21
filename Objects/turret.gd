@@ -7,6 +7,8 @@ extends Node2D
 @export var bullet: PackedScene
 
 var bullets = 0
+var lookback = false
+var target_angle = 0
 
 func _ready():
 	var utils = preload("res://Globals/Utils.gd").new()
@@ -22,11 +24,13 @@ func _ready():
 	rotation_degrees = Utils.string_to_rotation(tilerotation)
 
 func _process(delta):
-	if $Area2D.has_overlapping_bodies():
-		var target_body = $Area2D.get_overlapping_bodies()[0]
-		var target_angle = $pivot.global_position.angle_to_point(target_body.global_position)
+	if $range.has_overlapping_bodies():
+		$lookback.stop()
+		lookback = false
+		var target_body = $range.get_overlapping_bodies()[0]
+		target_angle = $pivot.global_position.angle_to_point(target_body.global_position) - rotation
 		$pivot.rotation = lerp_angle($pivot.rotation, target_angle, 5 * delta)
-		if $pivot/Area2D.has_overlapping_bodies() and $shootdelay.is_stopped() and bullets > 0:
+		if $pivot/FiringRange.has_overlapping_bodies() and $shootdelay.is_stopped() and bullets > 0:
 			var new_scene = bullet.instantiate()
 			add_child(new_scene)
 			new_scene.rotation = $pivot.rotation
@@ -34,7 +38,13 @@ func _process(delta):
 			$shootdelay.start()
 			bullets -= 1
 	else:
-		$pivot.rotation = lerp_angle($pivot.rotation, 0, 5 * delta)
+		if !lookback and $lookback.is_stopped():
+			$lookback.start()
+			lookback = true
+		if !$lookback.is_stopped():
+			$pivot.rotation = lerp_angle($pivot.rotation, target_angle, 5 * delta)
+		else:
+			$pivot.rotation = lerp_angle($pivot.rotation, 0, 5 * delta)
 	if $bulletacceptor.has_overlapping_areas():
 		for area in $bulletacceptor.get_overlapping_areas():
 			if area.get_parent().get_parent().name == "BulletItem":

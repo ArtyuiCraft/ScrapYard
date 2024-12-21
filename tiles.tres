@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bupm1kkfkwf1i"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://bupm1kkfkwf1i"]
 
 [ext_resource type="PackedScene" uid="uid://ct65m6r3640xt" path="res://Objects/Conveyor.tscn" id="1_d86vd"]
 [ext_resource type="PackedScene" uid="uid://ccgxkj53f6wxr" path="res://Objects/Wall.tscn" id="2_qqpq3"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://duy5fvjvbar3h" path="res://Objects/Turret.tscn" id="4_lse8o"]
 [ext_resource type="PackedScene" uid="uid://cra0u7na22m1w" path="res://Objects/ghosts/WallGhost.tscn" id="4_vlgbq"]
 [ext_resource type="PackedScene" uid="uid://bs8jdm4q3b6gj" path="res://Objects/ScrapNode.tscn" id="5_eudn8"]
+[ext_resource type="PackedScene" uid="uid://dyb6j2kiw5tw5" path="res://Objects/Producer.tscn" id="5_vr10y"]
 [ext_resource type="PackedScene" uid="uid://dfuukq67aivbu" path="res://Objects/ghosts/ExtractorGhost.tscn" id="6_uplp8"]
 [ext_resource type="PackedScene" uid="uid://rhoavtqtxsqj" path="res://Objects/ghosts/TurretGhost.tscn" id="8_1i6b1"]
+[ext_resource type="PackedScene" uid="uid://iko1vlhd02jn" path="res://Objects/ghosts/ProducerGhost.tscn" id="10_n28tp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_60joe"]
 resource_name = "objects"
@@ -16,6 +18,7 @@ scenes/1/scene = ExtResource("1_d86vd")
 scenes/2/scene = ExtResource("2_qqpq3")
 scenes/3/scene = ExtResource("3_aanha")
 scenes/4/scene = ExtResource("4_lse8o")
+scenes/5/scene = ExtResource("5_vr10y")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4h1k4"]
 resource_name = "ghosts"
@@ -23,6 +26,7 @@ scenes/1/scene = ExtResource("3_spxxm")
 scenes/2/scene = ExtResource("4_vlgbq")
 scenes/3/scene = ExtResource("6_uplp8")
 scenes/4/scene = ExtResource("8_1i6b1")
+scenes/5/scene = ExtResource("10_n28tp")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lejs4"]
 resource_name = "extra"

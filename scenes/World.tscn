@@ -36,3 +36,4 @@ position = Vector2(577, 324)
 [node name="GuiLayer" type="CanvasLayer" parent="."]
 
 [node name="gui" parent="GuiLayer" instance=ExtResource("4_ggyrk")]
+scale = Vector2(0.997158, 1)

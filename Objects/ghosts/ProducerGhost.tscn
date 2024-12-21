@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://iko1vlhd02jn"]
+
+[ext_resource type="Script" path="res://Objects/ghosts/ghost.gd" id="1_po2rx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8laa"]
+size = Vector3(50, 50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mphfc"]
+font_size = 29
+font_color = Color(0, 0, 0, 1)
+
+[node name="Producer" type="Node2D"]
+script = ExtResource("1_po2rx")
+
+[node name="Box" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_m8laa")
+
+[node name=">P>" type="Label" parent="."]
+z_index = 1
+offset_left = -25.0
+offset_top = -35.0
+offset_right = 26.0
+offset_bottom = 34.0
+text = ">P>"
+label_settings = SubResource("LabelSettings_mphfc")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
