@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0lverj3asi8s"]
+
+[ext_resource type="PackedScene" uid="uid://cnkue6xaeqt7g" path="res://Items/base_item.tscn" id="1_5ia6g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_078wk"]
+font_color = Color(0.886431, 0.886431, 7.70092e-07, 1)
+
+[node name="BulletItem" type="Node2D"]
+
+[node name="BaseItem" parent="." instance=ExtResource("1_5ia6g")]
+
+[node name="|" type="Label" parent="BaseItem"]
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 8.0
+offset_bottom = 9.0
+text = "|"
+label_settings = SubResource("LabelSettings_078wk")

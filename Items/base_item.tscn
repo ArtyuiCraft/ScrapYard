@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnkue6xaeqt7g"]
+
+[ext_resource type="Script" path="res://Items/base_item.gd" id="1_2bbic"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7ox0"]
+radius = 5.0
+height = 52.0
+
+[node name="BaseItem" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2bbic")
+
+[node name="Pickup+Belt" type="Area2D" parent="." groups=["item"]]
+
+[node name="Collision" type="CollisionShape2D" parent="Pickup+Belt"]
+shape = SubResource("CapsuleShape2D_i7ox0")
+
+[node name="WarningRemover" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_i7ox0")

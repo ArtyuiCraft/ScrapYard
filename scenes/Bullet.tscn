@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5qm838lv8umd"]
+
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_axtur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dh2o"]
+line_spacing = -10.0
+font_size = 50
+font_color = Color(0.862637, 0.862637, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5ir5"]
+size = Vector2(14, 5)
+
+[node name="Bullet" type="StaticBody2D"]
+script = ExtResource("1_axtur")
+
+[node name="-" type="Label" parent="."]
+offset_left = -1.0
+offset_top = -38.0
+offset_right = 15.0
+offset_bottom = 31.0
+text = "-"
+label_settings = SubResource("LabelSettings_6dh2o")
+
+[node name="collison" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collison"]
+position = Vector2(7, 2.5)
+shape = SubResource("RectangleShape2D_l5ir5")

@@ -1,0 +1,35 @@
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bupm1kkfkwf1i"]
+
+[ext_resource type="PackedScene" uid="uid://ct65m6r3640xt" path="res://Objects/Conveyor.tscn" id="1_d86vd"]
+[ext_resource type="PackedScene" uid="uid://ccgxkj53f6wxr" path="res://Objects/Wall.tscn" id="2_qqpq3"]
+[ext_resource type="PackedScene" uid="uid://0e25s2qlwq6x" path="res://Objects/Extractor.tscn" id="3_aanha"]
+[ext_resource type="PackedScene" uid="uid://b5hj3ftomkm35" path="res://Objects/ghosts/ConveyorGhost.tscn" id="3_spxxm"]
+[ext_resource type="PackedScene" uid="uid://duy5fvjvbar3h" path="res://Objects/Turret.tscn" id="4_lse8o"]
+[ext_resource type="PackedScene" uid="uid://cra0u7na22m1w" path="res://Objects/ghosts/WallGhost.tscn" id="4_vlgbq"]
+[ext_resource type="PackedScene" uid="uid://bs8jdm4q3b6gj" path="res://Objects/ScrapNode.tscn" id="5_eudn8"]
+[ext_resource type="PackedScene" uid="uid://dfuukq67aivbu" path="res://Objects/ghosts/ExtractorGhost.tscn" id="6_uplp8"]
+[ext_resource type="PackedScene" uid="uid://rhoavtqtxsqj" path="res://Objects/ghosts/TurretGhost.tscn" id="8_1i6b1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_60joe"]
+resource_name = "objects"
+scenes/1/scene = ExtResource("1_d86vd")
+scenes/2/scene = ExtResource("2_qqpq3")
+scenes/3/scene = ExtResource("3_aanha")
+scenes/4/scene = ExtResource("4_lse8o")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4h1k4"]
+resource_name = "ghosts"
+scenes/1/scene = ExtResource("3_spxxm")
+scenes/2/scene = ExtResource("4_vlgbq")
+scenes/3/scene = ExtResource("6_uplp8")
+scenes/4/scene = ExtResource("8_1i6b1")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lejs4"]
+resource_name = "extra"
+scenes/1/scene = ExtResource("5_eudn8")
+
+[resource]
+tile_size = Vector2i(50, 50)
+sources/0 = SubResource("TileSetScenesCollectionSource_60joe")
+sources/1 = SubResource("TileSetScenesCollectionSource_4h1k4")
+sources/2 = SubResource("TileSetScenesCollectionSource_lejs4")

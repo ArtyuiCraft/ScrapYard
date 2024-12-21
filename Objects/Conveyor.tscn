@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct65m6r3640xt"]
+
+[ext_resource type="Script" path="res://Objects/conveyor.gd" id="1_3ot70"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hl2gs"]
+size = Vector3(50, 50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ho7m"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey0tc"]
+size = Vector2(50, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n0q2"]
+size = Vector2(50, 20)
+
+[node name="Conveyor" type="Node2D"]
+script = ExtResource("1_3ot70")
+
+[node name="Box" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_hl2gs")
+
+[node name=">" type="Label" parent="."]
+z_index = 1
+offset_left = -23.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = 33.0
+text = ">"
+label_settings = SubResource("LabelSettings_1ho7m")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="KeepGoing" type="Area2D" parent="." groups=["belt"]]
+position = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeepGoing" groups=["belt", "keepgoing"]]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ey0tc")
+
+[node name="Mover" type="Area2D" parent="." groups=["keepgoing"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mover" groups=["keepgoing"]]
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_1n0q2")

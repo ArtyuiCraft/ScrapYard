@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://0e25s2qlwq6x"]
+
+[ext_resource type="Script" path="res://Objects/extractor.gd" id="1_jklh8"]
+[ext_resource type="PackedScene" uid="uid://ccs0daxrs00i6" path="res://Items/Scrap.tscn" id="2_fvdme"]
+
+[sub_resource type="Gradient" id="Gradient_vonib"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.497473, 0.497474, 0.497474, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pguhx"]
+gradient = SubResource("Gradient_vonib")
+width = 50
+height = 50
+fill_to = Vector2(0.0245399, 0.0214724)
+
+[node name="Extractor" type="Node2D"]
+z_index = 3
+script = ExtResource("1_jklh8")
+item = ExtResource("2_fvdme")
+
+[node name="E" type="Label" parent="."]
+z_index = 1
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrayBox" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_pguhx")
+
+[node name="spawnpoint" type="Node2D" parent="."]
+position = Vector2(50, 0)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci5vgifq52teu"]
+
+[ext_resource type="Script" path="res://scripts/followcamera.gd" id="1_enyvc"]
+
+[node name="followcamera" type="Node2D"]
+script = ExtResource("1_enyvc")
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cra0u7na22m1w"]
+
+[ext_resource type="Script" path="res://Objects/ghosts/ghost.gd" id="1_78qgu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hl2gs"]
+size = Vector3(50, 25, 50)
+
+[node name="Wall" type="Node2D"]
+script = ExtResource("1_78qgu")
+
+[node name="Rectangle" type="MeshInstance2D" parent="."]
+position = Vector2(0, 13)
+mesh = SubResource("BoxMesh_hl2gs")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://rhoavtqtxsqj"]
+
+[ext_resource type="Script" path="res://Objects/ghosts/ghost.gd" id="1_5ph5t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c1e1x"]
+size = Vector3(50, 50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_36j4j"]
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_5ph5t")
+
+[node name="Box" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_c1e1x")
+
+[node name="T>" type="Label" parent="."]
+z_index = 1
+offset_left = -23.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = 33.0
+text = "T>"
+label_settings = SubResource("LabelSettings_36j4j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

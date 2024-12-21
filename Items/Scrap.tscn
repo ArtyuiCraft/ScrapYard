@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccs0daxrs00i6"]
+
+[ext_resource type="PackedScene" uid="uid://cnkue6xaeqt7g" path="res://Items/base_item.tscn" id="1_jfudc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_74ghn"]
+font_color = Color(0.789184, 0.424985, 0.12201, 1)
+
+[node name="Scrap" type="Node2D"]
+
+[node name="BaseItem" parent="." instance=ExtResource("1_jfudc")]
+
+[node name="S" type="Label" parent="BaseItem"]
+z_index = 2
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 36.0
+offset_bottom = 11.0
+text = "S"
+label_settings = SubResource("LabelSettings_74ghn")

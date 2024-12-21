@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs8jdm4q3b6gj"]
+
+[sub_resource type="Gradient" id="Gradient_23lxs"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.188371, 0.188371, 0.188371, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jff05"]
+gradient = SubResource("Gradient_23lxs")
+width = 50
+height = 50
+fill_to = Vector2(0.0245399, 0.0214724)
+
+[node name="ScrapNode" type="Node2D"]
+
+[node name="BlackBox" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_jff05")
