@@ -31,12 +31,16 @@ func pulse():
 				items[i.get_parent().get_parent().name] += 1
 				i.get_parent().get_parent().queue_free()
 	if busy:
+		$">P>".text = " P>"
+		print("well")
 		busy = false
 		if recipe == 0:
 			var new_scene = preload("res://Items/BulletItem.tscn").instantiate()
 			add_child(new_scene)
 			new_scene.position = $out.position
 	if !busy:
+		$">P>".text = ">P>"
+		print("not")
 		if recipe == 0:
 			if items["Scrap"] >= 2:
 				items["Scrap"] -= 2
