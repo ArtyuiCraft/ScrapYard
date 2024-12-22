@@ -29,7 +29,7 @@ func _physics_process(delta):
 				onbelt = false
 		if !$"Pickup+Belt".has_overlapping_areas():
 			onbelt = false
-	if onbelt and !item_collect:
+	if onbelt: #and !item_collect:
 		if beltdirection == "up":
 			directiony = -0.5
 			directionx = 0

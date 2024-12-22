@@ -25,11 +25,13 @@ func _ready():
 	rotation_degrees = Utils.string_to_rotation(tilerotation)
 
 func _process(delta):
-		for i in $in.get_overlapping_areas():
-			if i.is_in_group("item"):
-				if i.get_parent().get_parent().name in items.keys():
-					items[i.get_parent().get_parent().name] += 1
-					i.get_parent().get_parent().queue_free()
+	var to_remove = []
+	for i in $in.get_overlapping_areas():
+		if i.is_in_group("item") and i.get_parent().get_parent().name in items.keys():
+			items[i.get_parent().get_parent().name] += 1
+			to_remove.append(i.get_parent().get_parent())
+	for item in to_remove:
+		item.queue_free()
 
 func pulse():
 	if busy:

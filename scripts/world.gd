@@ -16,14 +16,14 @@ func _process(delta):
 	mouse_pos = $Ghosts.local_to_map(get_global_mouse_position())
 	$Ghosts.set_cell(mouse_pos, 1,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
 	if player.hotbar[player.selected_item % len(player.hotbar)] == 3:
-			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0):
+			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0) and !($World.local_to_map(player.position) == mouse_pos):
 				$Ghosts.modulate = ghost
 				$Ghosts.self_modulate = ghost
 			else:
 				$Ghosts.modulate = red_ghost
 				$Ghosts.self_modulate = red_ghost
 	else:
-		if $World.get_cell_atlas_coords(mouse_pos) != Vector2i(-1,-1):
+		if $World.get_cell_atlas_coords(mouse_pos) != Vector2i(-1,-1) or ($World.local_to_map(player.position) == mouse_pos):
 			$Ghosts.modulate = red_ghost
 			$Ghosts.self_modulate = red_ghost
 		else:
@@ -34,7 +34,7 @@ func _process(delta):
 			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0):
 				$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
 		else:
-			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(-1,-1):
+			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(-1,-1) and !($World.local_to_map(player.position) == mouse_pos):
 				$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
 	if Input.is_action_pressed("break"):
 		$Objects.erase_cell(mouse_pos)

@@ -13,11 +13,11 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy3xp"]
 radius = 300.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j70n"]
-size = Vector2(50, 50)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jj82"]
 size = Vector2(70, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7j70n"]
+size = Vector2(50, 50)
 
 [node name="Turret" type="Node2D"]
 script = ExtResource("1_7lfrt")
@@ -47,6 +47,8 @@ polygon = PackedVector2Array(0, 0, 300, 100, 300, -100)
 
 [node name="range" type="Area2D" parent="." groups=["turret"]]
 scale = Vector2(0.992274, 1)
+collision_layer = 4
+collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="range"]
 shape = SubResource("CircleShape2D_iy3xp")
@@ -55,9 +57,6 @@ debug_color = Color(1, 0.0126934, 0.0130658, 0.42)
 [node name="shootdelay" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7j70n")
 
 [node name="bulletacceptor" type="Area2D" parent="." groups=["collector"]]
 collision_layer = 2
@@ -68,5 +67,10 @@ shape = SubResource("RectangleShape2D_3jj82")
 
 [node name="lookback" type="Timer" parent="."]
 one_shot = true
+
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_7j70n")
 
 [connection signal="area_entered" from="bulletacceptor" to="." method="_on_bulletacceptor_area_entered"]
