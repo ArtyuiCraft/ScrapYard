@@ -17,13 +17,13 @@ scene = ExtResource("2_21448")
 z_index = 2
 tile_set = ExtResource("2_usrer")
 
-[node name="Background" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAJAAQAAgAAAAAAAQAJAAUAAgAAAAAAAQAJAAMAAgAAAAAAAQAKAAMAAgAAAAAAAQAKAAQAAgAAAAAAAQAKAAUAAgAAAAAAAQALAAMAAgAAAAAAAQALAAQAAgAAAAAAAQAMAAQAAgAAAAAAAQAMAAUAAgAAAAAAAQALAAUAAgAAAAAAAQAMAAMAAgAAAAAAAQANAAMAAgAAAAAAAQANAAQAAgAAAAAAAQANAAUAAgAAAAAAAQA=")
-tile_set = ExtResource("2_usrer")
-
 [node name="Ghosts" type="TileMapLayer" parent="."]
 modulate = Color(1, 1, 1, 0.486275)
 z_index = 1
+tile_set = ExtResource("2_usrer")
+
+[node name="World" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAPAAcAAgAAAAAAAQAOAAcAAgAAAAAAAQANAAcAAgAAAAAAAQANAAYAAgAAAAAAAQAOAAYAAgAAAAAAAQAPAAYAAgAAAAAAAQAOAAUAAgAAAAAAAQAPAAUAAgAAAAAAAQAQAAYAAgAAAAAAAQAQAAUAAgAAAAAAAQAQAAcAAgAAAAAAAQARAAgAAgAAAAAAAQAQAAgAAgAAAAAAAQAPAAgAAgAAAAAAAQARAAcAAgAAAAAAAQA=")
 tile_set = ExtResource("2_usrer")
 
 [node name="followcamera" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_qo8lj")]

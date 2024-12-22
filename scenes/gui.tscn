@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://c412hme0ipk3w"]
+[gd_scene load_steps=2 format=3 uid="uid://c412hme0ipk3w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7tahn"]
+font_size = 20
 
 [node name="gui" type="Control"]
 layout_mode = 3
@@ -27,35 +30,44 @@ columns = 100
 layout_mode = 2
 text = ">
 1"
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split1" type="Label" parent="GridContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Wall" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "W
  2"
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split2" type="Label" parent="GridContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Extractor" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "E
 3"
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split3" type="Label" parent="GridContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Turret" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "T
 4"
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split4" type="Label" parent="GridContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Producor" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "P
 5"
+label_settings = SubResource("LabelSettings_7tahn")

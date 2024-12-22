@@ -1,0 +1,13 @@
+@tool
+extends Node2D
+
+@export var images: Array[Texture2D]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$BlackBox.texture = images.pick_random()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass

@@ -1,16 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs8jdm4q3b6gj"]
+[gd_scene load_steps=4 format=3 uid="uid://bs8jdm4q3b6gj"]
 
-[sub_resource type="Gradient" id="Gradient_pyibu"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.188371, 0.188371, 0.188371, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jff05"]
-gradient = SubResource("Gradient_pyibu")
-width = 50
-height = 50
-fill_to = Vector2(0.0245399, 0.0214724)
+[ext_resource type="Script" path="res://Objects/scrap_node.gd" id="1_4yx6o"]
+[ext_resource type="Texture2D" uid="uid://o0p14bs53dhn" path="res://images/scrap1.png" id="2_r27pb"]
+[ext_resource type="Texture2D" uid="uid://dv36htntpul82" path="res://images/scrap2.png" id="3_7n0ww"]
 
 [node name="ScrapNode" type="Node2D"]
+script = ExtResource("1_4yx6o")
+images = Array[Texture2D]([ExtResource("2_r27pb"), ExtResource("3_7n0ww")])
 
 [node name="BlackBox" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_jff05")
+texture_filter = 1
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_r27pb")
