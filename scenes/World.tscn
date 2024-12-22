@@ -16,6 +16,8 @@ script = ExtResource("1_a81bq")
 red_ghost = Color(0.678431, 0, 0, 0.54902)
 ghost = Color(1, 1, 1, 0.498039)
 scene = ExtResource("2_oi44o")
+colorred = Color(1, 0, 0, 1)
+colorwhite = Color(1, 1, 1, 1)
 
 [node name="Objects" type="TileMapLayer" parent="."]
 z_index = 2
@@ -99,7 +101,9 @@ label_settings = SubResource("LabelSettings_a0pbq")
 horizontal_alignment = 1
 
 [node name="BreakTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 0.5
 one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true

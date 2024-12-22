@@ -40,6 +40,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource("CircleShape2D_dlgc4")

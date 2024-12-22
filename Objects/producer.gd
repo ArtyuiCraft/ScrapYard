@@ -33,7 +33,7 @@ func _process(delta):
 	var to_remove = []
 	for i in $in.get_overlapping_areas():
 		if i.is_in_group("item"):
-			var item_name = i.get_parent().get_parent().name
+			var item_name = i.get_parent().itemname
 			if items.has(item_name):
 				items[item_name] += 1
 				to_remove.append(i.get_parent().get_parent())

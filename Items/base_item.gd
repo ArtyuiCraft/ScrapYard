@@ -9,7 +9,7 @@ var onbelt
 var directionx = 0.0
 var directiony = 0.0
 var item_collect = false
-
+@export var itemname = ""
 func _physics_process(delta):
 	var areas = $"Pickup+Belt".get_overlapping_areas()
 	for area in areas:

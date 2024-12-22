@@ -6,19 +6,25 @@ extends Node2D
 @export var ghost: Color
 var mouserotation = 0
 @export var scene: PackedScene
+@export var colorred: Color
+@export var colorwhite: Color
 var break_mouse_pos
 var inbreak = true
 var waveongoing = false
 var wave = 0
+const notile = Vector2i(-1,-1)
 
 func _process(delta):
 	if !waveongoing and $WaveTimer.is_stopped():
 		$WaveTimer.start()
+		waveongoing = true
 	if !$WaveTimer.is_stopped():
-		$GuiLayer/gui/wavetimer.text = "Next wave in: " + $WaveTimer.time_left + " sec"
+		$GuiLayer/gui/wavetimer.text = "Next wave in: " + str(int($WaveTimer.time_left)) + " sec"
+		$GuiLayer/gui/wavetimer.modulate = colorwhite
 	else:
 		$GuiLayer/gui/wavetimer.text = "WAVE STARTED"
-		$GuiLayer/gui/wavetimer.label_settings.font
+		$GuiLayer/gui/wavetimer.modulate = colorred
+	$GuiLayer/gui/wavescore.text = "Wave: " + str(wave)
 	if Input.is_action_just_pressed("rotate+"):
 		mouserotation = wrap(mouserotation + 1,0,4)
 	if Input.is_action_just_pressed("rotate-"):
@@ -34,20 +40,22 @@ func _process(delta):
 				$Ghosts.modulate = red_ghost
 				$Ghosts.self_modulate = red_ghost
 	else:
-		if $World.get_cell_atlas_coords(mouse_pos) != Vector2i(-1,-1) or ($World.local_to_map(player.position) == mouse_pos):
+		if $World.get_cell_atlas_coords(mouse_pos) != notile or ($World.local_to_map(player.position) == mouse_pos):
 			$Ghosts.modulate = red_ghost
 			$Ghosts.self_modulate = red_ghost
 		else:
 			$Ghosts.modulate = ghost
 			$Ghosts.self_modulate = ghost
 	if Input.is_action_pressed("place"):
-		if player.scrap >= player.selected_cost:
+		if player.scrap >= player.selected_cost and ($Objects.get_cell_atlas_coords(mouse_pos) == notile):
 			if player.hotbar[player.selected_item % len(player.hotbar)] == 3:
 				if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0):
 					$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
+					player.scrap -= player.selected_cost
 			else:
-				if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(-1,-1) and !($World.local_to_map(player.position) == mouse_pos):
+				if $World.get_cell_atlas_coords(mouse_pos) == notile and !($World.local_to_map(player.position) == mouse_pos):
 					$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
+					player.scrap -= player.selected_cost
 	if !$BreakTimer.is_stopped():
 		$GuiLayer/gui/ProgressBar.value = ($BreakTimer.wait_time - $BreakTimer.time_left) * 1000
 	else:
@@ -63,6 +71,7 @@ func _process(delta):
 		$BreakTimer.stop()
 		inbreak = false
 	if $BreakTimer.is_stopped() and inbreak:
+		player.scrap += player.cost[$Objects.get_cell_atlas_coords(mouse_pos).x]
 		$Objects.erase_cell(mouse_pos)
 		inbreak = false
 	if Input.is_action_just_pressed("spawn"):

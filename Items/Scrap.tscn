@@ -8,6 +8,7 @@ font_color = Color(0.789184, 0.424985, 0.12201, 1)
 [node name="Scrap" type="Node2D"]
 
 [node name="BaseItem" parent="." instance=ExtResource("1_jfudc")]
+itemname = "Scrap"
 
 [node name="S" type="Label" parent="BaseItem"]
 z_index = 6

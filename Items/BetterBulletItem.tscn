@@ -8,6 +8,7 @@ font_color = Color(0.886275, 0, 0, 1)
 [node name="BetterBulletItem" type="Node2D"]
 
 [node name="BaseItem" parent="." instance=ExtResource("1_5ugwd")]
+itemname = "BetterBulletItem"
 
 [node name="|" type="Label" parent="BaseItem"]
 z_index = 5

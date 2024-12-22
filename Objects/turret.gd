@@ -55,10 +55,10 @@ func _process(delta):
 			$pivot.rotation = lerp_angle($pivot.rotation, 0, 5 * delta)
 	if $bulletacceptor.has_overlapping_areas():
 		for area in $bulletacceptor.get_overlapping_areas():
-			if area.get_parent().get_parent().name == "BulletItem":
+			if area.get_parent().itemname == "BulletItem":
 				bullets += 1
 				area.get_parent().get_parent().queue_free()
-			if area.get_parent().get_parent().name == "BetterBulletItem":
+			if area.get_parent().itemname == "BetterBulletItem":
 				better_bullets += 1
 				area.get_parent().get_parent().queue_free()
 
