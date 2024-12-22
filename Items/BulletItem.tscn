@@ -10,6 +10,7 @@ font_color = Color(0.886431, 0.886431, 7.70092e-07, 1)
 [node name="BaseItem" parent="." instance=ExtResource("1_5ia6g")]
 
 [node name="|" type="Label" parent="BaseItem"]
+z_index = 5
 offset_left = -5.0
 offset_top = -14.0
 offset_right = 8.0

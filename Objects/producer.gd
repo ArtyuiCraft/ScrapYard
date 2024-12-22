@@ -1,4 +1,4 @@
-@tool
+
 extends Node2D
 
 @export_enum("up","down","left","right") var tilerotation: String = "right":
@@ -27,9 +27,11 @@ func _ready():
 func _process(delta):
 	var to_remove = []
 	for i in $in.get_overlapping_areas():
-		if i.is_in_group("item") and i.get_parent().get_parent().name in items.keys():
-			items[i.get_parent().get_parent().name] += 1
-			to_remove.append(i.get_parent().get_parent())
+		if i.is_in_group("item"):
+			var item_name = i.get_parent().get_parent().name
+			if items.has(item_name):
+				items[item_name] += 1
+				to_remove.append(i.get_parent().get_parent())
 	for item in to_remove:
 		item.queue_free()
 

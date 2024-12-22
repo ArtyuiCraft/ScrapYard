@@ -2,13 +2,8 @@
 
 [ext_resource type="Script" path="res://Objects/turret.gd" id="1_7lfrt"]
 [ext_resource type="PackedScene" uid="uid://b5qm838lv8umd" path="res://scenes/Bullet.tscn" id="2_dieey"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_c1e1x"]
-size = Vector3(50, 50, 50)
-
-[sub_resource type="LabelSettings" id="LabelSettings_36j4j"]
-font_size = 42
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://bc4g4bihecw6v" path="res://images/turret_top.webp" id="3_0d34y"]
+[ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="4_gehds"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy3xp"]
 radius = 300.0
@@ -23,27 +18,18 @@ size = Vector2(50, 50)
 script = ExtResource("1_7lfrt")
 bullet = ExtResource("2_dieey")
 
-[node name="box" type="MeshInstance2D" parent="."]
-mesh = SubResource("BoxMesh_c1e1x")
-
 [node name="pivot" type="Node2D" parent="."]
-
-[node name="T>" type="Label" parent="pivot"]
-z_index = 1
-offset_left = -23.0
-offset_top = -36.0
-offset_right = 26.0
-offset_bottom = 33.0
-text = "T>"
-label_settings = SubResource("LabelSettings_36j4j")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="FiringRange" type="Area2D" parent="pivot"]
 
 [node name="Polygon" type="CollisionPolygon2D" parent="pivot/FiringRange"]
 polygon = PackedVector2Array(0, 0, 300, 100, 300, -100)
+
+[node name="TurretTop" type="Sprite2D" parent="pivot"]
+z_index = 1
+position = Vector2(2.38419e-07, -1)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_0d34y")
 
 [node name="range" type="Area2D" parent="." groups=["turret"]]
 scale = Vector2(0.992274, 1)
@@ -59,7 +45,6 @@ wait_time = 0.4
 one_shot = true
 
 [node name="bulletacceptor" type="Area2D" parent="." groups=["collector"]]
-collision_layer = 2
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="bulletacceptor"]
@@ -72,5 +57,10 @@ one_shot = true
 
 [node name="Collision" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_7j70n")
+
+[node name="TurretBottom" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.142857, 0.142857)
+texture = ExtResource("4_gehds")
 
 [connection signal="area_entered" from="bulletacceptor" to="." method="_on_bulletacceptor_area_entered"]

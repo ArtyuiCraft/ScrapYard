@@ -1,28 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://rhoavtqtxsqj"]
 
 [ext_resource type="Script" path="res://Objects/ghosts/ghost.gd" id="1_5ph5t"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_c1e1x"]
-size = Vector3(50, 50, 50)
-
-[sub_resource type="LabelSettings" id="LabelSettings_36j4j"]
-font_size = 42
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="2_oqucp"]
+[ext_resource type="Texture2D" uid="uid://bc4g4bihecw6v" path="res://images/turret_top.webp" id="3_q8e1s"]
 
 [node name="Turret" type="Node2D"]
 script = ExtResource("1_5ph5t")
 
-[node name="Box" type="MeshInstance2D" parent="."]
-mesh = SubResource("BoxMesh_c1e1x")
+[node name="TurretBottom" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.142857, 0.142857)
+texture = ExtResource("2_oqucp")
 
-[node name="T>" type="Label" parent="."]
+[node name="TurretTop" type="Sprite2D" parent="."]
 z_index = 1
-offset_left = -23.0
-offset_top = -36.0
-offset_right = 26.0
-offset_bottom = 33.0
-text = "T>"
-label_settings = SubResource("LabelSettings_36j4j")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+position = Vector2(2.38419e-07, -1)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_q8e1s")
