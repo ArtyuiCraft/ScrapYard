@@ -1,10 +1,18 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+func _ready():
+	DiscordRPC.app_id = 1320371630761050122
+	DiscordRPC.details = "A game made for minijam 174"
+	DiscordRPC.state = "Scrap: 0 Core hp: 100"
+	DiscordRPC.large_image = "turret"
+	DiscordRPC.large_image_text = "Play it at:"
+	DiscordRPC.small_image = "rock"
+	DiscordRPC.small_image_text = "Made by Artyui and Spindlebink"
+
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system())
+	DiscordRPC.refresh()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,19 +1,22 @@
-
 extends Node2D
 
 @export_enum("up","down","left","right") var tilerotation: String = "right":
 	set(newrotation):
 		tilerotation = newrotation
 		rotation_degrees = Utils.string_to_rotation(newrotation)
-@export_enum("bullets") var recipe: int
+@export_enum("bullets","betterbullets") var recipe: int
 
+var has_recipe = false
 var busy = false
-var items = {"Scrap": 0}
+var items = {"Scrap": 0, "BulletItem": 0}
 
 func _ready():
 	var utils = preload("res://Globals/Utils.gd").new()
 	GlobalTimer.connect("pulse",pulse)
 	var mouserotation = get_parent().get_parent().mouserotation
+	print($"../../GuiLayer".get_children())
+	$"../../GuiLayer/gui/recipes".visible = true
+	$"../../GuiLayer/gui/recipes".connect("item_selected",set_recipe)
 	if mouserotation == 0:
 		tilerotation = "right"
 	if mouserotation == 1:
@@ -43,9 +46,24 @@ func pulse():
 			var new_scene = preload("res://Items/BulletItem.tscn").instantiate()
 			add_child(new_scene)
 			new_scene.position = $out.position
+		if recipe == 1:
+			var new_scene = preload("res://Items/BetterBulletItem.tscn").instantiate()
+			add_child(new_scene)
+			new_scene.position = $out.position
 	if !busy:
 		$">P>".text = ">P>"
 		if recipe == 0:
 			if items["Scrap"] >= 1:
 				items["Scrap"] -= 1
 				busy = true
+		if recipe == 1:
+			if items["Scrap"] >= 1 and items["BulletItem"] >= 1:
+				items["Scrap"] -= 1
+				busy = true
+func set_recipe(idx):
+	if has_recipe:
+		return
+	recipe = idx
+	$"../../GuiLayer/gui/recipes".visible = false
+	has_recipe = true
+	$"../../GuiLayer/gui/recipes".selected = -1

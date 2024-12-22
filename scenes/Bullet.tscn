@@ -26,3 +26,5 @@ label_settings = SubResource("LabelSettings_6dh2o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collison"]
 position = Vector2(7, 2.5)
 shape = SubResource("RectangleShape2D_l5ir5")
+
+[connection signal="body_entered" from="collison" to="." method="_on_collison_body_entered"]

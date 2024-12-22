@@ -32,14 +32,13 @@ func _process(delta):
 			$Ghosts.modulate = ghost
 			$Ghosts.self_modulate = ghost
 	if Input.is_action_pressed("place"):
-		if player.hotbar[player.selected_item % len(player.hotbar)] == 3:
-			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0):
-				$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
-		else:
-			if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(-1,-1) and !($World.local_to_map(player.position) == mouse_pos):
-				$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
+		if player.scrap >= player.selected_cost:
+			if player.hotbar[player.selected_item % len(player.hotbar)] == 3:
+				if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(0,0):
+					$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
 			else:
-				print("as")
+				if $World.get_cell_atlas_coords(mouse_pos) == Vector2i(-1,-1) and !($World.local_to_map(player.position) == mouse_pos):
+					$Objects.set_cell(mouse_pos, 0,Vector2i(0,0),player.hotbar[player.selected_item % len(player.hotbar)])
 	if !$BreakTimer.is_stopped():
 		$GuiLayer/gui/ProgressBar.value = ($BreakTimer.wait_time - $BreakTimer.time_left) * 1000
 	else:
@@ -57,7 +56,7 @@ func _process(delta):
 	if $BreakTimer.is_stopped() and inbreak:
 		$Objects.erase_cell(mouse_pos)
 		inbreak = false
-	#if Input.is_action_just_pressed("spawn"):
-	#	var new_scene = scene.instantiate()
-	#	add_child(new_scene)
-	#	new_scene.position = get_global_mouse_position()
+	if Input.is_action_just_pressed("spawn"):
+		var new_scene = scene.instantiate()
+		add_child(new_scene)
+		new_scene.position = get_global_mouse_position()

@@ -29,9 +29,17 @@ grow_horizontal = 2
 grow_vertical = 0
 columns = 100
 
+[node name="schema" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "symbol:
+key       :
+cost      :   "
+label_settings = SubResource("LabelSettings_7tahn")
+
 [node name="Conveyor" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = ">
+1
 1"
 label_settings = SubResource("LabelSettings_7tahn")
 
@@ -42,7 +50,8 @@ label_settings = SubResource("LabelSettings_7tahn")
 [node name="Wall" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "W
- 2"
+ 2
+ 5"
 label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split2" type="Label" parent="GridContainer"]
@@ -52,7 +61,8 @@ label_settings = SubResource("LabelSettings_7tahn")
 [node name="Extractor" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "E
-3"
+3
+5"
 label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split3" type="Label" parent="GridContainer"]
@@ -62,7 +72,8 @@ label_settings = SubResource("LabelSettings_7tahn")
 [node name="Turret" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "T
-4"
+4
+10"
 label_settings = SubResource("LabelSettings_7tahn")
 
 [node name="Split4" type="Label" parent="GridContainer"]
@@ -72,6 +83,7 @@ label_settings = SubResource("LabelSettings_7tahn")
 [node name="Producor" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "P
+5
 5"
 label_settings = SubResource("LabelSettings_7tahn")
 
@@ -118,7 +130,7 @@ keybinds:
 
 made by Artyui & spindlebink"
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="recipes" type="OptionButton" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -132,5 +144,9 @@ offset_right = 16.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+item_count = 2
+popup/item_0/text = "bullets"
+popup/item_1/text = "better bullets"
+popup/item_1/id = 1
 
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]

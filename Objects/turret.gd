@@ -7,6 +7,7 @@ extends Node2D
 @export var bullet: PackedScene
 
 var bullets = 0
+var better_bullets = 0
 var lookback = false
 var target_angle = 0
 
@@ -34,9 +35,14 @@ func _process(delta):
 			var new_scene = bullet.instantiate()
 			add_child(new_scene)
 			new_scene.rotation = $pivot.rotation
+			if better_bullets > 0:
+				new_scene.damage = 50
+				better_bullets -= 1
+			else:
+				new_scene.damage = 10
+				bullets -= 1
 			new_scene.reparent(get_parent())
 			$shootdelay.start()
-			bullets -= 1
 	else:
 		if !lookback and $lookback.is_stopped():
 			$lookback.start()
@@ -49,4 +55,7 @@ func _process(delta):
 		for area in $bulletacceptor.get_overlapping_areas():
 			if area.get_parent().get_parent().name == "BulletItem":
 				bullets += 1
+				area.get_parent().get_parent().queue_free()
+			if area.get_parent().get_parent().name == "BetterBulletItem":
+				better_bullets += 1
 				area.get_parent().get_parent().queue_free()

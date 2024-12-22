@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://cgb4gsrgn8nvq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a81bq"]
-[ext_resource type="PackedScene" uid="uid://ccs0daxrs00i6" path="res://Items/Scrap.tscn" id="2_21448"]
+[ext_resource type="PackedScene" uid="uid://1b1w2qpxxuyo" path="res://scenes/enemy.tscn" id="2_oi44o"]
 [ext_resource type="TileSet" uid="uid://bupm1kkfkwf1i" path="res://tiles.tres" id="2_usrer"]
 [ext_resource type="PackedScene" uid="uid://ci5vgifq52teu" path="res://scenes/followcamera.tscn" id="3_qo8lj"]
 [ext_resource type="PackedScene" uid="uid://b7wl48076v3px" path="res://scenes/player.tscn" id="4_fkdyk"]
@@ -11,7 +11,7 @@
 script = ExtResource("1_a81bq")
 red_ghost = Color(0.678431, 0, 0, 0.54902)
 ghost = Color(1, 1, 1, 0.498039)
-scene = ExtResource("2_21448")
+scene = ExtResource("2_oi44o")
 
 [node name="Objects" type="TileMapLayer" parent="."]
 z_index = 2
@@ -36,7 +36,6 @@ position = Vector2(577, 324)
 [node name="GuiLayer" type="CanvasLayer" parent="."]
 
 [node name="gui" parent="GuiLayer" instance=ExtResource("4_ggyrk")]
-scale = Vector2(0.997158, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="GuiLayer/gui"]
 layout_mode = 1
@@ -54,6 +53,16 @@ grow_vertical = 0
 max_value = 500.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Label" type="Label" parent="GuiLayer/gui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "scrap: 0"
 
 [node name="BreakTimer" type="Timer" parent="."]
 wait_time = 0.5

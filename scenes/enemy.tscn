@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://1b1w2qpxxuyo"]
+[gd_scene load_steps=4 format=3 uid="uid://1b1w2qpxxuyo"]
 
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_q78bo"]
 [ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="1_qlee4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5racd"]
 radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_q78bo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1

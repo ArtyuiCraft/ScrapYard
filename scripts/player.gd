@@ -2,13 +2,17 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var hotbar = [1,2,3,4,5]
+var cost   = [1,5,5,10,5]
 var selected_item = 0
+var selected_cost
 var onbelt = false
 var beltdirection
+var scrap = 10000
 
 func _physics_process(delta):
 	var directionx = Input.get_axis("left", "right")
 	var directiony = Input.get_axis("up", "down")
+	selected_cost = cost[selected_item % len(cost)]
 	
 	if Input.is_action_just_pressed("hotbar slot 1"):
 		selected_item = 0
