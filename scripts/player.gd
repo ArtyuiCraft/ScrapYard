@@ -7,7 +7,7 @@ var selected_item = 0
 var selected_cost
 var onbelt = false
 var beltdirection
-var scrap = 10000
+var scrap = 0
 
 func _physics_process(delta):
 	var directionx = Input.get_axis("left", "right")
@@ -34,6 +34,14 @@ func _physics_process(delta):
 		selected_item = 8
 	if Input.is_action_just_pressed("hotbar slot 10"):
 		selected_item = 9
+	if Input.is_action_pressed("pickup"):
+		if $Area2D2.has_overlapping_areas():
+			for i in $Area2D2.get_overlapping_areas():
+				if i.get_parent().get_parent().name == "scrap":
+					i.get_parent().get_parent().queue_free()
+					scrap += 1
+	$"../GuiLayer/gui/Label".text = "Scrap: "+scrap
+	DiscordRPC.state = "Scrap: " + scrap + "Core hp: " + $"../Core".hp
 	
 	var areas = $Area2D.get_overlapping_areas()
 	for area in areas:

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://1b1w2qpxxuyo"]
+[gd_scene load_steps=5 format=3 uid="uid://1b1w2qpxxuyo"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_q78bo"]
 [ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="1_qlee4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5racd"]
 radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10i0k"]
+radius = 15.0333
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -19,3 +22,8 @@ shape = SubResource("CircleShape2D_5racd")
 position = Vector2(-2.98023e-08, -1.19209e-07)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_qlee4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_10i0k")

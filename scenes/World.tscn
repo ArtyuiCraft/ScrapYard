@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgb4gsrgn8nvq"]
+[gd_scene load_steps=9 format=4 uid="uid://cgb4gsrgn8nvq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a81bq"]
 [ext_resource type="PackedScene" uid="uid://1b1w2qpxxuyo" path="res://scenes/enemy.tscn" id="2_oi44o"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b7wl48076v3px" path="res://scenes/player.tscn" id="4_fkdyk"]
 [ext_resource type="PackedScene" uid="uid://c412hme0ipk3w" path="res://scenes/gui.tscn" id="4_ggyrk"]
 [ext_resource type="PackedScene" uid="uid://cervc4uh7ipt7" path="res://Objects/core.tscn" id="6_gpkdq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a0pbq"]
+font_size = 26
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_a81bq")
@@ -69,6 +72,34 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "scrap: 0"
 
+[node name="wavetimer" type="Label" parent="GuiLayer/gui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -73.5
+offset_right = 73.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Next wave in: 0 sec"
+label_settings = SubResource("LabelSettings_a0pbq")
+
+[node name="wavescore" type="Label" parent="GuiLayer/gui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.7
+offset_top = 37.0
+offset_right = 119.3
+offset_bottom = 73.0
+grow_horizontal = 2
+text = "Wave: 0"
+label_settings = SubResource("LabelSettings_a0pbq")
+horizontal_alignment = 1
+
 [node name="BreakTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 60.0
 one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="."]

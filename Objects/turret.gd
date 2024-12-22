@@ -10,6 +10,8 @@ var bullets = 0
 var better_bullets = 0
 var lookback = false
 var target_angle = 0
+var hp = 20
+var cantakedamage = true
 
 func _ready():
 	var utils = preload("res://Globals/Utils.gd").new()
@@ -59,3 +61,8 @@ func _process(delta):
 			if area.get_parent().get_parent().name == "BetterBulletItem":
 				better_bullets += 1
 				area.get_parent().get_parent().queue_free()
+
+func damage(amount):
+	hp -= amount
+	if hp <= 0:
+		queue_free()

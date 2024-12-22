@@ -6,6 +6,8 @@ extends Node2D
 		rotation_degrees = Utils.string_to_rotation(newrotation)
 @export_enum("bullets","betterbullets") var recipe: int
 
+var hp = 40
+var cantakedamage = true
 var has_recipe = false
 var busy = false
 var items = {"Scrap": 0, "BulletItem": 0}
@@ -67,3 +69,8 @@ func set_recipe(idx):
 	$"../../GuiLayer/gui/recipes".visible = false
 	has_recipe = true
 	$"../../GuiLayer/gui/recipes".selected = -1
+
+func damage(amount):
+	hp -= amount
+	if hp <= 0:
+		queue_free()

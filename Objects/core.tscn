@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cervc4uh7ipt7"]
+[gd_scene load_steps=4 format=3 uid="uid://cervc4uh7ipt7"]
 
 [ext_resource type="Script" path="res://Objects/core.gd" id="1_43s0x"]
 [ext_resource type="Texture2D" uid="uid://be474krxtp76q" path="res://images/core.png" id="2_1goeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my1ti"]
 
 [node name="Core" type="Node2D"]
 script = ExtResource("1_43s0x")
@@ -10,3 +12,9 @@ script = ExtResource("1_43s0x")
 position = Vector2(1, 3.00003)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_1goeg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(11.84, 11.84)
+shape = SubResource("RectangleShape2D_my1ti")

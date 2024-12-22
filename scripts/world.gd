@@ -8,8 +8,17 @@ var mouserotation = 0
 @export var scene: PackedScene
 var break_mouse_pos
 var inbreak = true
+var waveongoing = false
+var wave = 0
 
 func _process(delta):
+	if !waveongoing and $WaveTimer.is_stopped():
+		$WaveTimer.start()
+	if !$WaveTimer.is_stopped():
+		$GuiLayer/gui/wavetimer.text = "Next wave in: " + $WaveTimer.time_left + " sec"
+	else:
+		$GuiLayer/gui/wavetimer.text = "WAVE STARTED"
+		$GuiLayer/gui/wavetimer.label_settings.font
 	if Input.is_action_just_pressed("rotate+"):
 		mouserotation = wrap(mouserotation + 1,0,4)
 	if Input.is_action_just_pressed("rotate-"):

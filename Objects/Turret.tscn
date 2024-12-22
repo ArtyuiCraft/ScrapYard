@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Objects/turret.gd" id="1_7lfrt"]
 [ext_resource type="PackedScene" uid="uid://b5qm838lv8umd" path="res://scenes/Bullet.tscn" id="2_dieey"]
-[ext_resource type="Texture2D" uid="uid://bc4g4bihecw6v" path="res://images/turret_top.webp" id="3_0d34y"]
-[ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="4_gehds"]
+[ext_resource type="Texture2D" uid="uid://cydky6publod2" path="res://images/turret_top.png" id="3_8s21h"]
+[ext_resource type="Texture2D" uid="uid://cquskxrqytui2" path="res://images/turret_bottom.png" id="4_omsq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy3xp"]
 radius = 300.0
@@ -28,8 +28,8 @@ polygon = PackedVector2Array(0, 0, 300, 100, 300, -100)
 [node name="TurretTop" type="Sprite2D" parent="pivot"]
 z_index = 1
 position = Vector2(2.38419e-07, -1)
-scale = Vector2(0.12, 0.12)
-texture = ExtResource("3_0d34y")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("3_8s21h")
 
 [node name="range" type="Area2D" parent="." groups=["turret"]]
 scale = Vector2(0.992274, 1)
@@ -59,8 +59,7 @@ one_shot = true
 shape = SubResource("RectangleShape2D_7j70n")
 
 [node name="TurretBottom" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 1.90735e-06)
-scale = Vector2(0.142857, 0.142857)
-texture = ExtResource("4_gehds")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_omsq2")
 
 [connection signal="area_entered" from="bulletacceptor" to="." method="_on_bulletacceptor_area_entered"]

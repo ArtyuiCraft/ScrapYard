@@ -1,6 +1,8 @@
 @tool
 extends Node2D
 
+var hp = 20
+
 @export_enum("up","down","left","right") var tilerotation: String = "right":
 	set(newrotation):
 		tilerotation = newrotation
@@ -18,3 +20,8 @@ func _ready():
 	if mouserotation == 3:
 		tilerotation = "up"
 	rotation_degrees = Utils.string_to_rotation(tilerotation)
+
+func damage(amount):
+	hp -= amount
+	if hp <= 0:
+		queue_free()

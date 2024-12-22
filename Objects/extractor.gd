@@ -2,6 +2,8 @@
 extends Node2D
 
 @export var item: PackedScene
+var hp = 20
+var cantakedamage = true
 
 @export_enum("up","down","left","right") var tilerotation: String = "right":
 	set(newrotation):
@@ -31,3 +33,8 @@ func pulse():
 	add_child(new_scene)
 	new_scene.position = $spawnpoint.position
 	new_scene.reparent(get_parent())
+
+func damage(amount):
+	hp -= amount
+	if hp <= 0:
+		queue_free()
