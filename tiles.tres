@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://bupm1kkfkwf1i"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://bupm1kkfkwf1i"]
 
 [ext_resource type="PackedScene" uid="uid://ct65m6r3640xt" path="res://Objects/Conveyor.tscn" id="1_d86vd"]
 [ext_resource type="PackedScene" uid="uid://ccgxkj53f6wxr" path="res://Objects/Wall.tscn" id="2_qqpq3"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dfuukq67aivbu" path="res://Objects/ghosts/ExtractorGhost.tscn" id="6_uplp8"]
 [ext_resource type="PackedScene" uid="uid://rhoavtqtxsqj" path="res://Objects/ghosts/TurretGhost.tscn" id="8_1i6b1"]
 [ext_resource type="PackedScene" uid="uid://iko1vlhd02jn" path="res://Objects/ghosts/ProducerGhost.tscn" id="10_n28tp"]
+[ext_resource type="PackedScene" uid="uid://cervc4uh7ipt7" path="res://Objects/core.tscn" id="12_6ufdc"]
+[ext_resource type="PackedScene" uid="uid://dqs5ccxrorirq" path="res://Objects/corehit.tscn" id="13_52kyl"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_60joe"]
 resource_name = "objects"
@@ -31,6 +33,8 @@ scenes/5/scene = ExtResource("10_n28tp")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lejs4"]
 resource_name = "extra"
 scenes/1/scene = ExtResource("5_eudn8")
+scenes/2/scene = ExtResource("13_52kyl")
+scenes/4/scene = ExtResource("12_6ufdc")
 
 [resource]
 tile_size = Vector2i(50, 50)

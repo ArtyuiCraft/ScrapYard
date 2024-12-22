@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://1b1w2qpxxuyo"]
+
+[ext_resource type="Texture2D" uid="uid://cu3gu1vp1gnkf" path="res://images/turret_bottom.webp" id="1_qlee4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5racd"]
+radius = 11.0
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_5racd")
+
+[node name="TurretBottom" type="Sprite2D" parent="."]
+position = Vector2(-2.98023e-08, -1.19209e-07)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_qlee4")

@@ -70,8 +70,8 @@ keybinds:
  - set recipe = r
  - open tutorial window = t
  - hotbar slots = numbers
- - break = left mouse button
- - place = right mouse button
+ - break = right mouse button
+ - place = left mouse button
  - zoom in / out = scroll wheel
  - rotate clockwise = e
  - rotate counter clockwise = q

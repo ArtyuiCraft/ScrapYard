@@ -23,7 +23,7 @@ z_index = 1
 tile_set = ExtResource("2_usrer")
 
 [node name="World" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAPAAcAAgAAAAAAAQAOAAcAAgAAAAAAAQANAAcAAgAAAAAAAQANAAYAAgAAAAAAAQAOAAYAAgAAAAAAAQAPAAYAAgAAAAAAAQAOAAUAAgAAAAAAAQAPAAUAAgAAAAAAAQAQAAYAAgAAAAAAAQAQAAUAAgAAAAAAAQAQAAcAAgAAAAAAAQARAAgAAgAAAAAAAQAQAAgAAgAAAAAAAQAPAAgAAgAAAAAAAQARAAcAAgAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAPAAcAAgAAAAAAAQAOAAcAAgAAAAAAAQANAAcAAgAAAAAAAQANAAYAAgAAAAAAAQAOAAYAAgAAAAAAAQAOAAUAAgAAAAAAAQAPAAUAAgAAAAAAAQAQAAUAAgAAAAAAAQAQAAcAAgAAAAAAAQARAAgAAgAAAAAAAQAQAAgAAgAAAAAAAQAPAAgAAgAAAAAAAQARAAcAAgAAAAAAAQAFAAYAAgAAAAAABAAQAAYAAgAAAAAAAQAPAAYAAgAAAAAAAQAHAAgAAgAAAAAABQAHAAcAAgAAAAAABQAHAAYAAgAAAAAABQAHAAUAAgAAAAAABQAHAAQAAgAAAAAABQAGAAQAAgAAAAAABQAFAAQAAgAAAAAABQAEAAQAAgAAAAAABQADAAQAAgAAAAAABQADAAUAAgAAAAAABQADAAYAAgAAAAAABQADAAcAAgAAAAAABQADAAgAAgAAAAAABQAEAAgAAgAAAAAABQAFAAgAAgAAAAAABQAGAAgAAgAAAAAABQAGAAcAAgAAAAAABQAGAAYAAgAAAAAABQAGAAUAAgAAAAAABQAFAAUAAgAAAAAABQAEAAUAAgAAAAAABQAEAAYAAgAAAAAABQAEAAcAAgAAAAAABQAFAAcAAgAAAAAABQA=")
 tile_set = ExtResource("2_usrer")
 
 [node name="followcamera" parent="." node_paths=PackedStringArray("node") instance=ExtResource("3_qo8lj")]
@@ -37,3 +37,24 @@ position = Vector2(577, 324)
 
 [node name="gui" parent="GuiLayer" instance=ExtResource("4_ggyrk")]
 scale = Vector2(0.997158, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="GuiLayer/gui"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.8621
+offset_top = -234.002
+offset_right = 4.13794
+offset_bottom = -0.00183105
+grow_horizontal = 0
+grow_vertical = 0
+max_value = 500.0
+fill_mode = 3
+show_percentage = false
+
+[node name="BreakTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
