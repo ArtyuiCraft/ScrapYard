@@ -23,6 +23,10 @@ func _ready():
 	rotation_degrees = Utils.string_to_rotation(tilerotation)
 
 func pulse():
+	if $Area2D.has_overlapping_areas():
+		for i in $Area2D.get_overlapping_areas():
+			if i.is_in_group("item"):
+				return
 	var new_scene = item.instantiate()
 	add_child(new_scene)
 	new_scene.position = $spawnpoint.position

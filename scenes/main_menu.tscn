@@ -73,6 +73,8 @@ keybinds:
  - break = left mouse button
  - place = right mouse button
  - zoom in / out = scroll wheel
+ - rotate clockwise = e
+ - rotate counter clockwise = q
 
 made by Artyui & spindlebink"
 
