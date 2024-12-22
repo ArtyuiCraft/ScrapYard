@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://0e25s2qlwq6x"]
+[gd_scene load_steps=6 format=3 uid="uid://0e25s2qlwq6x"]
 
 [ext_resource type="Script" path="res://Objects/extractor.gd" id="1_jklh8"]
 [ext_resource type="PackedScene" uid="uid://ccs0daxrs00i6" path="res://Items/Scrap.tscn" id="2_fvdme"]
@@ -12,6 +12,9 @@ gradient = SubResource("Gradient_vonib")
 width = 50
 height = 50
 fill_to = Vector2(0.0245399, 0.0214724)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddy5r"]
+size = Vector2(50, 50)
 
 [node name="Extractor" type="Node2D"]
 z_index = 3
@@ -33,3 +36,6 @@ texture = SubResource("GradientTexture2D_pguhx")
 
 [node name="spawnpoint" type="Node2D" parent="."]
 position = Vector2(35, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ddy5r")
