@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs8jdm4q3b6gj"]
+[gd_scene load_steps=3 format=3 uid="uid://bs8jdm4q3b6gj"]
 
 [ext_resource type="Script" path="res://Objects/scrap_node.gd" id="1_4yx6o"]
-[ext_resource type="Texture2D" uid="uid://o0p14bs53dhn" path="res://images/scrap1.png" id="2_r27pb"]
-[ext_resource type="Texture2D" uid="uid://dv36htntpul82" path="res://images/scrap2.png" id="3_7n0ww"]
+[ext_resource type="Texture2D" uid="uid://cn1ro3di4r21y" path="res://images/rock.webp" id="2_6qg7a"]
 
 [node name="ScrapNode" type="Node2D"]
 script = ExtResource("1_4yx6o")
-images = Array[Texture2D]([ExtResource("2_r27pb"), ExtResource("3_7n0ww")])
 
 [node name="BlackBox" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(3.125, 3.125)
-texture = ExtResource("2_r27pb")
+scale = Vector2(-0.13867, -0.13867)
+texture = ExtResource("2_6qg7a")
