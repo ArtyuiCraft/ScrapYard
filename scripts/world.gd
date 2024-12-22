@@ -11,19 +11,32 @@ var mouserotation = 0
 var break_mouse_pos
 var inbreak = true
 var waveongoing = false
+var wavetimergoing = false
 var wave = 0
 const notile = Vector2i(-1,-1)
+var wavestart = false
+var enemies = 0
+var cantakedamage = false
+
+func _ready():
+	GlobalTimer.connect("pulse",pulse)
 
 func _process(delta):
-	if !waveongoing and $WaveTimer.is_stopped():
-		$WaveTimer.start()
-		waveongoing = true
+	$spawnshape.position.x = 2000
+	$spawnshape.position.y = 2000
 	if !$WaveTimer.is_stopped():
-		$GuiLayer/gui/wavetimer.text = "Next wave in: " + str(int($WaveTimer.time_left)) + " sec"
+		$GuiLayer/gui/wavetimer.text = "Next wave in: " + str(int(ceil($WaveTimer.time_left))) + " sec"
 		$GuiLayer/gui/wavetimer.modulate = colorwhite
 	else:
 		$GuiLayer/gui/wavetimer.text = "WAVE STARTED"
 		$GuiLayer/gui/wavetimer.modulate = colorred
+	if $WaveTimer.is_stopped() and wavetimergoing and !wavestart:
+		wavestart = true
+		wavetimergoing = false
+		enemies = (wave + 1) * 5
+	if !wavestart and $WaveTimer.is_stopped():
+		wavetimergoing = true
+		$WaveTimer.start()
 	$GuiLayer/gui/wavescore.text = "Wave: " + str(wave)
 	if Input.is_action_just_pressed("rotate+"):
 		mouserotation = wrap(mouserotation + 1,0,4)
@@ -60,7 +73,7 @@ func _process(delta):
 		$GuiLayer/gui/ProgressBar.value = ($BreakTimer.wait_time - $BreakTimer.time_left) * 1000
 	else:
 		$GuiLayer/gui/ProgressBar.value = 0
-	if Input.is_action_just_pressed("break"):
+	if Input.is_action_pressed("break") and !inbreak:
 		$BreakTimer.start()
 		break_mouse_pos = mouse_pos
 		inbreak = true
@@ -74,7 +87,18 @@ func _process(delta):
 		player.scrap += player.cost[$Objects.get_cell_atlas_coords(mouse_pos).x]
 		$Objects.erase_cell(mouse_pos)
 		inbreak = false
-	if Input.is_action_just_pressed("spawn"):
+	#if Input.is_action_just_pressed("spawn"):
+	#	var new_scene = scene.instantiate()
+	#	add_child(new_scene)
+	#	new_scene.position = get_global_mouse_position()
+
+func pulse():
+	var rect : Rect2 = $spawnshape.shape.get_rect()
+	var x = randi_range($spawnshape.position.x, rect.position.x+rect.size.x)
+	var y = randi_range($spawnshape.position.y, rect.position.y+rect.size.y)
+	var rand_point = Vector2(x,y)
+	if enemies > 0:
 		var new_scene = scene.instantiate()
 		add_child(new_scene)
-		new_scene.position = get_global_mouse_position()
+		new_scene.position = rand_point
+		enemies -= 1

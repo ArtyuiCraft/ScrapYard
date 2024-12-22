@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cgb4gsrgn8nvq"]
+[gd_scene load_steps=10 format=4 uid="uid://cgb4gsrgn8nvq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a81bq"]
 [ext_resource type="PackedScene" uid="uid://1b1w2qpxxuyo" path="res://scenes/enemy.tscn" id="2_oi44o"]
@@ -10,6 +10,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_a0pbq"]
 font_size = 26
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mxh"]
+size = Vector2(764, 295)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_a81bq")
@@ -105,5 +108,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 2.0
 one_shot = true
+
+[node name="spawnshape" type="CollisionShape2D" parent="."]
+position = Vector2(2000, 2000)
+shape = SubResource("RectangleShape2D_f0mxh")

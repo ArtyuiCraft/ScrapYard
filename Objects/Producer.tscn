@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyb6j2kiw5tw5"]
+[gd_scene load_steps=10 format=3 uid="uid://dyb6j2kiw5tw5"]
 
 [ext_resource type="Script" path="res://Objects/producer.gd" id="1_jg2r7"]
 
@@ -24,6 +24,9 @@ size = Vector2(24, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_edsea"]
 size = Vector2(15.25, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tcru"]
+size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7t8tx"]
 size = Vector2(20, 50)
@@ -77,6 +80,15 @@ shape = SubResource("RectangleShape2D_edsea")
 [node name="out" type="Node2D" parent="."]
 z_index = 3
 position = Vector2(16, 0)
+
+[node name="RigidBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+collision_priority = 10000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+z_index = 4
+shape = SubResource("RectangleShape2D_3tcru")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3

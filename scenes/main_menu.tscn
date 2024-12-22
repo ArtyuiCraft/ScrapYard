@@ -53,7 +53,7 @@ theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 0
 bbcode_enabled = true
 text = "Welcome to scrapyard
-you need to defend your base against ***** using automation and turrets
+you need to defend your base against [color=red]THE THINGS[/color] using automation and turrets
 
 objects:
  - > = belt moves items from one place to another
@@ -63,19 +63,16 @@ objects:
  - p = producer takes in items and crafts them to its set recipe
  - core = big thing in the middle of the base protect this at all costs
 
-objective: dont let your core be destroyed by the *****
+objective: dont let your core be destroyed by [color=red]THE THINGS[/color]
 
 keybinds:
  - movement = arrow keys or wasd
  - set recipe = r
  - open tutorial window = t
  - hotbar slots = numbers
- - break = right mouse button
- - place = left mouse button
+ - break = left mouse button
+ - place = right mouse button
  - zoom in / out = scroll wheel
- - rotate clockwise = e
- - rotate counter clockwise = q
- - pickup = f
 
 made by Artyui & spindlebink"
 
