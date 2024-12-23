@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cgb4gsrgn8nvq"]
+[gd_scene load_steps=11 format=4 uid="uid://cgb4gsrgn8nvq"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_a81bq"]
 [ext_resource type="PackedScene" uid="uid://1b1w2qpxxuyo" path="res://scenes/enemy.tscn" id="2_oi44o"]
@@ -14,6 +14,11 @@ font_size = 26
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0mxh"]
 size = Vector2(764, 295)
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jt87g"]
+vertices = PackedVector2Array(3104, -221, 3104, 2624.96, -647.078, 2613.02, -973.781, -224.977)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-985, -235, 3114, -231, 3114, 2635, -656, 2623)])
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_a81bq")
 red_ghost = Color(0.678431, 0, 0, 0.54902)
@@ -21,6 +26,10 @@ ghost = Color(1, 1, 1, 0.498039)
 scene = ExtResource("2_oi44o")
 colorred = Color(1, 0, 0, 1)
 colorwhite = Color(1, 1, 1, 1)
+
+[node name="Core" parent="." instance=ExtResource("6_gpkdq")]
+position = Vector2(276, 325)
+scale = Vector2(1.08, 1.08)
 
 [node name="Objects" type="TileMapLayer" parent="."]
 z_index = 2
@@ -41,10 +50,6 @@ node = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_fkdyk")]
 position = Vector2(577, 324)
-
-[node name="Core" parent="." instance=ExtResource("6_gpkdq")]
-position = Vector2(276, 325)
-scale = Vector2(1.08, 1.08)
 
 [node name="GuiLayer" type="CanvasLayer" parent="."]
 
@@ -108,9 +113,12 @@ wait_time = 0.5
 one_shot = true
 
 [node name="WaveTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 60.0
 one_shot = true
 
 [node name="spawnshape" type="CollisionShape2D" parent="."]
 position = Vector2(2000, 2000)
 shape = SubResource("RectangleShape2D_f0mxh")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_jt87g")

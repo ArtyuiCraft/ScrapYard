@@ -12,4 +12,4 @@ func _process(delta):
 func damage(amount):
 	hp -= amount
 	if hp <= 0:
-		print("game over")
+		get_tree().change_scene_to_file("res://scenes/game over.tscn")

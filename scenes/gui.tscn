@@ -127,6 +127,13 @@ keybinds:
  - break = left mouse button
  - place = right mouse button
  - zoom in / out = scroll wheel
+ - pickup = pick scrap up
+
+recipes:
+ - ammo = 1 scrap -> 1 ammo
+ - betterammo = 1 scrap + 1 ammo -> betterammo
+
+you start with 10 scrap build an extractor to gain more
 
 made by Artyui & spindlebink"
 

@@ -73,7 +73,7 @@ func _process(delta):
 		$GuiLayer/gui/ProgressBar.value = ($BreakTimer.wait_time - $BreakTimer.time_left) * 1000
 	else:
 		$GuiLayer/gui/ProgressBar.value = 0
-	if Input.is_action_pressed("break") and !inbreak:
+	if Input.is_action_pressed("break") and !inbreak and !$Objects.get_cell_atlas_coords(mouse_pos) == notile:
 		$BreakTimer.start()
 		break_mouse_pos = mouse_pos
 		inbreak = true

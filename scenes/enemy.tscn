@@ -9,10 +9,12 @@ radius = 11.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_10i0k"]
 radius = 15.0333
 
-[node name="Enemy" type="CharacterBody2D"]
-collision_layer = 4
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("navigation")]
+z_index = 4
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_q78bo")
+navigation = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -24,6 +26,20 @@ scale = Vector2(0.06, 0.06)
 texture = ExtResource("1_qlee4")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_10i0k")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

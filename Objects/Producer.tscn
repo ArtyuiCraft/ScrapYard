@@ -98,3 +98,6 @@ collision_priority = 10000.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 z_index = 4
 shape = SubResource("RectangleShape2D_7t8tx")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(25, -25, 25, 25, -25, 25, -25, -25)

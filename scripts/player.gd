@@ -7,7 +7,8 @@ var selected_item = 0
 var selected_cost
 var onbelt = false
 var beltdirection
-var scrap = 50000
+var scrap = 5
+var cantakedamage = false
 
 func _physics_process(delta):
 	var directionx = Input.get_axis("left", "right")

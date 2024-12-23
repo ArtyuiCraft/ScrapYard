@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+var cantakedamage = false
 var speed: float = 100
 var damage = 10
 

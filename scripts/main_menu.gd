@@ -7,7 +7,7 @@ func _ready():
 	DiscordRPC.details = "A game made for minijam 174"
 	DiscordRPC.state = "Scrap: 0 Core hp: 100"
 	DiscordRPC.large_image = "turret"
-	DiscordRPC.large_image_text = "Play it at:"
+	DiscordRPC.large_image_text = "Play it at: https://artyuicraft.itch.io/scrapyard"
 	DiscordRPC.small_image = "rock"
 	DiscordRPC.small_image_text = "Made by Artyui and Spindlebink"
 

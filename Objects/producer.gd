@@ -16,7 +16,6 @@ func _ready():
 	var utils = preload("res://Globals/Utils.gd").new()
 	GlobalTimer.connect("pulse",pulse)
 	var mouserotation = get_parent().get_parent().mouserotation
-	print($"../../GuiLayer".get_children())
 	$"../../GuiLayer/gui/recipes".visible = true
 	$"../../GuiLayer/gui/recipes".connect("item_selected",set_recipe)
 	if mouserotation == 0:

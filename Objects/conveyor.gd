@@ -2,6 +2,7 @@
 extends Node2D
 
 var hp = 20
+var cantakedamage = true
 
 @export_enum("up","down","left","right") var tilerotation: String = "right":
 	set(newrotation):

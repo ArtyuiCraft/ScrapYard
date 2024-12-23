@@ -1,6 +1,8 @@
 @tool
 extends Node
 
+const core = Vector2(276,325)
+
 func string_to_rotation(string: String):
 	if string == "up":
 		return -90

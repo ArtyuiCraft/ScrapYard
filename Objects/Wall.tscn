@@ -22,3 +22,6 @@ mesh = SubResource("BoxMesh_hl2gs")
 [node name="Collision" type="CollisionShape2D" parent="WarningRemover"]
 position = Vector2(0, 13)
 shape = SubResource("RectangleShape2D_dl7cu")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(25, 0, 25, 25, -25, 25, -25, 0)
